@@ -1,0 +1,14 @@
+.input {
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  height: 44px;
+  padding-left: 16px;
+  box-sizing: border-box;
+  outline: none;
+  font-family: inherit;
+}
+
+.input::placeholder {
+  color: #141221;
+  opacity: 0.7;
+}

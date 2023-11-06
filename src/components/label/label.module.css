@@ -1,0 +1,10 @@
+.label {
+    color: #141221;
+    opacity: .7;
+    margin-bottom: 4px;
+    margin-top: 8px;
+}
+
+.label:first-child {
+    margin-top: 0;
+}

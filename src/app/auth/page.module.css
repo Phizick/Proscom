@@ -1,0 +1,52 @@
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.one {
+  background: #000000;
+  height: 100vh;
+  color: #fff;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.proscom {
+  font-size: 64px;
+  line-height: 68px;
+}
+
+.two {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  margin-top: 24px;
+}
+
+.auth {
+  max-width: 336px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  margin-top: 30px;
+}
