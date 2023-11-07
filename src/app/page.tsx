@@ -1,11 +1,11 @@
 import { Header } from "@/components/header/header";
 import { Menu } from "@/components/menu/menu";
-import s from './page.module.css'
+import { PageWrapper } from "@/components/page-wrapper/page-wrapper";
 export default function Home() {
   return (
-    <div className={s.page}>
+    <PageWrapper>
       <Header />
-      <Menu/>
-    </div>
+      <Menu />
+    </PageWrapper>
   );
 }
