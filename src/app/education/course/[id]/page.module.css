@@ -1,0 +1,12 @@
+.wrapper {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 32px;
+    box-sizing: border-box;
+  }
+
+  .crumbs {
+    margin-top: 98px;
+    display: flex;
+    align-items: center;
+  }

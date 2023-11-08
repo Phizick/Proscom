@@ -10,7 +10,9 @@ export const Wrapper: FC<IProps> = ({ children }) => {
   return (
     <div className={s.flex}>
       <Menu />
-      <div className={s.wrapper}>{children}</div>
+      <div className={s.wrapper}>
+        {children}
+        </div>
     </div>
   );
 };

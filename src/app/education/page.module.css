@@ -1,10 +1,8 @@
-.title {
-  margin: 0;
-  color: #141221;
-  opacity: 0.9;
-  font-weight: bold;
-  font-size: 22px;
-  line-height: 26px;
+.wrapper {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 32px;
+  box-sizing: border-box;
 }
 
 .title_course {
@@ -14,103 +12,9 @@
   font-weight: bold;
   font-size: 22px;
   line-height: 26px;
-}
-
-
-
-.course {
-  padding: 16px;
-  box-sizing: border-box;
-  border: 1px solid #ededed;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  margin-top: 16px;
-  text-decoration: none;
-  color: #141221;
-  transition: 0.2s;
-}
-
-.course:hover {
-  opacity: 0.7;
-}
-
-.description {
-  margin: 0;
-  margin-top: 4px;
-}
-
-.flex {
-  margin-top: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.flex__texts {
-  display: flex;
-  align-items: center;
-}
-
-.result {
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 4px 8px;
-  margin: 0;
-  margin-right: 8px;
-  box-sizing: border-box;
-}
-
-.deadline {
-  margin: 0;
-  color: #fff;
-  background-color: #ff7043;
-  border-radius: 8px;
-  padding: 4px 8px;
-  margin-right: 8px;
-  box-sizing: border-box;
-}
-
-.grade {
-  color: #141221;
-  opacity: 0.7;
-  margin: 0;
-}
-
-.grade__span {
-  color: #141221;
-  opacity: 4;
-  font-weight: bold;
-}
-
-.grade__span_o {
-  color: #3aa981;
-}
-
-.grade__span_b {
-  color: #dd4c1e;
-}
-
-.completed_courses {
   margin-top: 32px;
 }
 
-.result_100 {
-  background-color: #4ac99b;
-  color: #fff;
-}
-
-.result_o {
-  background-color: #ff7043;
-  color: #fff;
-}
-
-.deadline_completed {
-  color: #3aa981;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.deadline_no {
-  background-color: rgba(0, 0, 0, 0.1);
-  color: #ff7043;
+.title_course:first-of-type {
+  margin-top: 0;
 }

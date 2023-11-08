@@ -1,0 +1,23 @@
+.link {
+    color: #141221;
+    opacity: 7;
+    text-decoration: none;
+    transition: .2s;
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+    margin-bottom: 16px;
+}
+
+.link_active {
+    color: #5C5CD6;
+}
+
+.link:hover {
+    opacity: .7;
+}
+
+
+.img {
+    margin-left: 8px;
+}
