@@ -14,7 +14,7 @@ interface IProps {
 export const Crumb: FC<IProps> = ({ text, linkText, activeLink }) => {
   return (
     <Link className={cn(s.link, activeLink && s.link_active)} href={linkText}>
-      {text}
+      <p className={s.p}>{text}</p>
       {activeLink === false && (
         <Image className={s.img} src={arrowImg} alt="arrow" />
       )}

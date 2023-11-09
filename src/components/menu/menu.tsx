@@ -27,13 +27,13 @@ export const Menu = () => {
             Обучение
             <p className={s.notif}>{1}</p>
           </Link>
-          <Link
+          {/* <Link
             className={cn(s.link, pathname === "" ? s.link_active : "")}
             href="/"
           >
             <Image className={s.img} src={allImg} alt="Общее" />
             Общее
-          </Link>
+          </Link> */}
           {/* 
           <Link className={cn(s.link, pathname === 'peoples' ? s.link_active : '')} href="/peoples">
             <Image className={s.img} src={peplesImg} alt="Мои сотрудники" />

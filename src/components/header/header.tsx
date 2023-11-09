@@ -1,6 +1,10 @@
-import { FC } from "react";
+"use client";
+import { FC, useEffect } from "react";
 import s from "./header.module.css";
 import Link from "next/link";
+import { useAppDispatch, useAppSelector } from "@/app/GlobalRedux/store";
+import { getUserThunk } from "@/app/GlobalRedux/slices/profileSlice";
+import { profile } from "console";
 export const Header: FC = () => {
   const num = 0;
   const currentDate = new Date();
@@ -13,6 +17,13 @@ export const Header: FC = () => {
     hour: "2-digit",
     minute: "2-digit",
   });
+  const { profile } = useAppSelector((state) => state.profile);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(getUserThunk(window.localStorage.getItem("token") as string));
+  }, []);
+  const name = profile.username?.charAt(0).toUpperCase();
+
   return (
     <header className={s.header}>
       <h1 className={s.title}>
@@ -27,7 +38,7 @@ export const Header: FC = () => {
           {num !== 0 && <p className={s.btn_num}>1</p>}
         </div>
         <Link href="/profile" className={s.avatar}>
-          N
+          {name}
         </Link>
       </div>
     </header>

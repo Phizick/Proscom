@@ -4,6 +4,8 @@ interface IProps {
   type: string;
   id: string;
   placeholder: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input: FC<IProps> = ({ ...rest }) => {

@@ -8,7 +8,7 @@ interface IProps {
   textResult: string;
   textDeadline: string;
   textSpan: string;
-  linkText: string;
+  linkText: number;
 }
 
 export const Course: FC<IProps> = ({
