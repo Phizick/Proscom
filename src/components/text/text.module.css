@@ -1,15 +1,7 @@
-.wrapper {
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 32px;
-  box-sizing: border-box;
-}
-
 .title_course {
   margin: 0;
   color: #141221;
   opacity: 0.9;
-  font-weight: bold;
   font-size: 22px;
   line-height: 26px;
   margin-top: 32px;

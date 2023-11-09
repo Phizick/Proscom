@@ -3,15 +3,16 @@
 import { Header } from "@/components/header/header";
 import { PageWrapper } from "@/components/page-wrapper/page-wrapper";
 import { Wrapper } from "@/components/wrapper/wrapper";
-import s from "./page.module.css";
 import { Course } from "@/components/course/course";
+import { Box } from "@/components/box/box";
+import { Text } from "@/components/text/text";
 export function EducationPage() {
   return (
     <PageWrapper>
       <Header />
       <Wrapper>
-        <div className={s.wrapper}>
-          <p className={s.title_course}>1 курс для прохождения</p>
+        <Box>
+          <Text text="1 курс для прохождения" />
           <Course
             textTitle="Тайм менеджмент"
             textDescription="Описание курса"
@@ -20,8 +21,7 @@ export function EducationPage() {
             textSpan="тест не пройден"
             linkText="123"
           />
-          <p className={s.title_course}>Пройденные курсы</p>
-
+          <Text text="Пройденные курсы" />
           <Course
             textTitle="Тайм менеджмент"
             textDescription="Описание курса"
@@ -30,7 +30,7 @@ export function EducationPage() {
             textSpan="тест не пройден"
             linkText="1234"
           />
-        </div>
+        </Box>
       </Wrapper>
     </PageWrapper>
   );

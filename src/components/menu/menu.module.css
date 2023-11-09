@@ -6,9 +6,11 @@
   margin-top: 66px;
   display: flex;
   margin-bottom: 0;
-  min-height: 768px;
   flex-direction: column;
+  height: 768px;
   justify-content: space-between;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
 }
 
 .txt {

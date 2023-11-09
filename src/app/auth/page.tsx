@@ -1,12 +1,18 @@
 "use client";
-
 import { Button } from "@/components/button/button";
 import { Input } from "@/components/input/input";
 import { Label } from "@/components/label/label";
 import { Title } from "@/components/title/title";
 import s from "./page.module.css";
 import cn from "classnames";
+import { useRouter } from "next/navigation";
+import { SyntheticEvent } from "react";
 export function AuthPage() {
+  const router = useRouter();
+  const authClick = (e: SyntheticEvent) => {
+    e.preventDefault();
+    return router.replace("/");
+  };
   return (
     <div className={s.flex}>
       <div className={s.one}>
@@ -21,7 +27,7 @@ export function AuthPage() {
             <Input type="text" id="email" placeholder="Введите e-mail" />
             <Label inputId="password" text="Пароль" />
             <Input type="password" id="password" placeholder="Введите пароль" />
-            <Button classname={s.btn} text="Войти" />
+            <Button onClick={authClick} classname={s.btn} text="Войти" />
           </form>
         </div>
       </div>
