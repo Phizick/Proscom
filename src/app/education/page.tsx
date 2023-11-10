@@ -6,7 +6,7 @@ import { Course } from "@/components/course/course";
 import { Box } from "@/components/box/box";
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../GlobalRedux/store";
-import { getEducationThunk } from "../GlobalRedux/slices/educationSlice";
+import { getEducationRoleThunk } from "../GlobalRedux/slices/educationSlice";
 import s from "./page.module.css";
 import { useRouter } from "next/navigation";
 export function EducationPage() {
@@ -18,8 +18,9 @@ export function EducationPage() {
   const dispatch = useAppDispatch();
   useEffect(() => {
     const token = window.localStorage.getItem("token");
+    const role = window.localStorage.getItem("role") as string;
     if (token) {
-      dispatch(getEducationThunk());
+      dispatch(getEducationRoleThunk("PM"));
       setUserToken(token);
     } else {
       router.replace("/auth");
@@ -33,7 +34,7 @@ export function EducationPage() {
           <Header />
           <Wrapper>
             <Box>
-              {pending && <p>Загрузка</p>}
+              {pending && education.length === 0 && <p>Загрузка</p>}
               {error?.message && (
                 <p style={{ color: "red" }}>{error?.message}</p>
               )}

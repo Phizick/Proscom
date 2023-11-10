@@ -16,6 +16,8 @@ export type IResponseError = {
 interface IUser {
   _id: string;
   username: string;
+  priority: string;
+  role: string;
 }
 
 interface IState {
@@ -58,7 +60,8 @@ export const getUserSlice = createSlice({
       state.error = {};
     }),
       builder.addCase(getUserThunk.fulfilled, (state, action) => {
-        (state.pending = false), (state.profile = action.payload);
+        (state.pending = false), 
+        (state.profile = action.payload);
         state.error = {};
       }),
       builder.addCase(getUserThunk.rejected, (state, action) => {

@@ -19,9 +19,9 @@
   font-family: inherit;
   background-color: #5c5cd6;
   padding: 8px;
+  text-align: center;
   box-sizing: border-box;
   font-weight: bold;
-  cursor: pointer;
   transition: 0.2s;
   margin-left: 8px;
 }
@@ -35,6 +35,21 @@
   justify-content: space-between;
   align-items: baseline;
   margin-top: 8px;
+  max-height: 215px;
+  overflow-y: scroll;
+}
+
+.courses::-webkit-scrollbar {
+  width: 1px;
+}
+
+.courses::-webkit-scrollbar-track {
+  background: #f9fafc;
+}
+
+.courses::-webkit-scrollbar-thumb {
+  background-color: #f9fafc;
+  border-radius: 20px;
 }
 
 .course_title {

@@ -4,8 +4,9 @@ import s from "./header.module.css";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "@/app/GlobalRedux/store";
 import { getUserThunk } from "@/app/GlobalRedux/slices/profileSlice";
-import { profile } from "console";
+import { useRouter } from "next/navigation";
 export const Header: FC = () => {
+  const router = useRouter();
   const num = 0;
   const currentDate = new Date();
   const date1 = currentDate.toLocaleString("ru-RU", {
@@ -28,7 +29,7 @@ export const Header: FC = () => {
   return (
     <header className={s.header}>
       {error?.message && <p style={{ color: "red" }}>{error?.message}</p>}
-      <h1 className={s.title}>
+      <h1 onClick={() => router.replace("/")} className={s.title}>
         <span className={s.by}>by </span> PROSCOM
       </h1>
       <p className={s.date}>

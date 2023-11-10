@@ -5,12 +5,14 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { authSlice } from "./slices/authSlice";
 import { getUserSlice } from "./slices/profileSlice";
 import { getEducationSlice } from "./slices/educationSlice";
+import { uploadSlice } from "./slices/uploadSlice";
 
 export const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
     profile: getUserSlice.reducer,
     education: getEducationSlice.reducer,
+    upload: uploadSlice.reducer
   },
 });
 

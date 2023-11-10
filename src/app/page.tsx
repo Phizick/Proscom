@@ -8,7 +8,9 @@ import { Employees } from "@/components/employees/employees";
 import { Box } from "@/components/box/box";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAppSelector } from "./GlobalRedux/store";
 export default function Home() {
+  const { profile } = useAppSelector((state) => state.profile);
   const [tokenActive, setTokenActive] = useState(false);
   const router = useRouter();
   useEffect(() => {
@@ -28,8 +30,8 @@ export default function Home() {
           <Wrapper>
             <Box>
               <Statics />
-              <MyCourse />
-              <Employees />
+              {profile.priority === "1" && <MyCourse />}
+              {profile.priority === "1" && <Employees />}
             </Box>
           </Wrapper>
         </PageWrapper>

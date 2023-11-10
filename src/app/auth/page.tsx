@@ -11,9 +11,10 @@ import { useAppDispatch, useAppSelector } from "../GlobalRedux/store";
 import { userRegisterThunk } from "../GlobalRedux/slices/authSlice";
 export function AuthPage() {
   const { message } = useAppSelector((state) => state.auth.error);
-  const { profile } = useAppSelector((state) => state.profile);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [priority, setPriority] = useState("");
+  const [role, setRole] = useState("default");
   const dispatch = useAppDispatch();
   const router = useRouter();
   useEffect(() => {
@@ -24,7 +25,7 @@ export function AuthPage() {
   }, []);
   const authClick = async (e: SyntheticEvent) => {
     e.preventDefault();
-    await dispatch(userRegisterThunk({ username, password }));
+    await dispatch(userRegisterThunk({ username, password, priority, role }));
     if (window.localStorage.getItem("token")) {
       router.push("/");
     }
@@ -49,7 +50,46 @@ export function AuthPage() {
                 id="name"
                 placeholder="Введите логин"
               />
+              <Label inputId="priority" text="Приоритет 1-HR & 2-Пользователь" />
+              <Input
+                value={priority}
+                onChange={(e) => setPriority(e.target.value)}
+                type="text"
+                id="priority"
+                placeholder="1 или 0"
+              />
+              <Label
+                inputId="role"
+                text="Выберите роль: (PM, dev,sales,design,others)"
+              />
+              <select
+                defaultValue={role}
+                id="role"
+                className={s.select}
+                name="select"
+                onChange={(e) => setRole(e.target.value)}
+              >
+                <option disabled className={s.option} value="default">
+                  Выберите пользователя
+                </option>
+                <option className={s.option} value="PM">
+                  Проджект менеджер
+                </option>
+                <option className={s.option} value="dev">
+                  Разработчик
+                </option>
+                <option className={s.option} value="sales">
+                  Продажник
+                </option>
+                <option className={s.option} value="design">
+                  Дизайнер
+                </option>
+                <option className={s.option} value="others">
+                  Прочее
+                </option>
+              </select>
               <Label inputId="password" text="Пароль" />
+
               <Input
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

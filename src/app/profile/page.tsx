@@ -50,7 +50,9 @@ export function ProfilePage() {
           <Wrapper>
             <Box>
               <Title text={profile?.username} />
-              <Title text={profile?._id} />
+              <Title text={profile.priority === '1' ? 'HR' : 'Сотрудник'} />
+              <Title text={`Направление: ${profile.role}`} />
+              <Title text={profile._id} />
               <div className={s.pie}>
                 <Pie data={data} />
               </div>

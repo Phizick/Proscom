@@ -46,6 +46,24 @@ const initialState: IState = {
   pending: false,
 };
 
+export const getEducationRoleThunk = createAsyncThunk(
+  "get-role-education",
+  async (role: string) => {
+    try {
+      const response = await axios.get(`${API}/tasks?role=${role}`, {});
+      return response.data;
+    } catch (error) {
+      let message;
+      if (axios.isAxiosError(error) && error.response) {
+        message = error.response.data.message;
+        throw new Error(message);
+      } else {
+        throw new Error("Не получить тесты :(").message;
+      }
+    }
+  }
+);
+
 export const getEducationThunk = createAsyncThunk("get-education", async () => {
   try {
     const response = await axios.get(`${API}/alltasks`, {});
@@ -84,19 +102,19 @@ export const getEducationSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addMatcher(isAnyOf(getEducationThunk.pending), (state) => {
+    builder.addMatcher(isAnyOf(getEducationRoleThunk.pending), (state) => {
       state.pending = true;
       state.error = {};
     }),
       builder.addMatcher(
-        isAnyOf(getEducationThunk.fulfilled),
+        isAnyOf(getEducationRoleThunk.fulfilled),
         (state, action) => {
           (state.pending = false), (state.education = action.payload);
           state.error = {};
         }
       ),
       builder.addMatcher(
-        isAnyOf(getEducationThunk.rejected),
+        isAnyOf(getEducationRoleThunk.rejected),
         (state, action) => {
           state.error = action.error;
           state.pending = false;
@@ -115,6 +133,24 @@ export const getEducationSlice = createSlice({
       ),
       builder.addMatcher(
         isAnyOf(getCurrentEducationThunk.rejected),
+        (state, action) => {
+          state.error = action.error;
+          state.pending = false;
+        }
+      );
+    builder.addMatcher(isAnyOf(getEducationThunk.pending), (state) => {
+      state.pending = true;
+      state.error = {};
+    }),
+      builder.addMatcher(
+        isAnyOf(getEducationThunk.fulfilled),
+        (state, action) => {
+          (state.pending = false), (state.education = action.payload);
+          state.error = {};
+        }
+      ),
+      builder.addMatcher(
+        isAnyOf(getEducationThunk.rejected),
         (state, action) => {
           state.error = action.error;
           state.pending = false;

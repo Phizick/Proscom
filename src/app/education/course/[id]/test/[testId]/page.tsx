@@ -98,7 +98,7 @@ export function TestPage() {
                       procentAnswers >= 80 ? `Поздравляем!` : "Сочувствуем!"
                     }
                   />
-                  <Text text={`${procentAnswers}%`} />
+                  <Text text={`${procentAnswers.toFixed()}%`} />
                   {
                     <Button
                       classname={s.btn}

@@ -50,3 +50,15 @@
 .btn {
   margin-top: 8px;
 }
+
+.select {
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  height: 44px;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+  outline: none;
+  font-family: inherit;
+  background-color: #fff;
+}

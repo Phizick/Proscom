@@ -31,11 +31,18 @@ const initialState: IState = {
 
 export const userRegisterThunk = createAsyncThunk(
   "get-token",
-  async (data: { username: string; password: string }) => {
+  async (data: {
+    username: string;
+    password: string;
+    priority: string;
+    role: string;
+  }) => {
     try {
       const response = await axios.post(`${API}/register`, {
         username: data.username,
         password: data.password,
+        priority: data.priority,
+        role: data.role,
       });
       return response.data;
     } catch (error) {
