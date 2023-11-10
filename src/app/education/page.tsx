@@ -11,7 +11,6 @@ import s from "./page.module.css";
 import { useRouter } from "next/navigation";
 export function EducationPage() {
   const [userToken, setUserToken] = useState("");
-  const { profile } = useAppSelector((state) => state.profile);
   const router = useRouter();
   const { education } = useAppSelector((state) => state.education);
   const { pending } = useAppSelector((state) => state.education);

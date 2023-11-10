@@ -4,7 +4,8 @@ import cn from "classnames";
 interface IProps {
   text: string;
   classname?: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
+  onClick?: any;
 }
 
 export const Button: FC<IProps> = ({ text, classname, ...rest }) => {

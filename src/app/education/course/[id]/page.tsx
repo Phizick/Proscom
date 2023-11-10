@@ -3,7 +3,7 @@ import { Crumb } from "@/components/crumb/crumb";
 import { Header } from "@/components/header/header";
 import { PageWrapper } from "@/components/page-wrapper/page-wrapper";
 import { Wrapper } from "@/components/wrapper/wrapper";
-import { useParams, usePathname, useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { Title } from "@/components/title/title";
 import { Description } from "@/components/description/description";
 import { Box } from "@/components/box/box";
@@ -12,6 +12,8 @@ import { Text } from "@/components/text/text";
 import { useAppDispatch, useAppSelector } from "@/app/GlobalRedux/store";
 import { useEffect, useState } from "react";
 import { getEducationThunk } from "@/app/GlobalRedux/slices/educationSlice";
+import { Button } from "@/components/button/button";
+import s from "./page.module.css";
 export function CoursePage() {
   const [userToken, setUserToken] = useState("");
   const { education } = useAppSelector((state) => state.education);
@@ -24,6 +26,8 @@ export function CoursePage() {
     if (token) {
       dispatch(getEducationThunk());
       setUserToken(token);
+    } else {
+      return router.push("/auth");
     }
   }, []);
   const currentEducation =
@@ -56,7 +60,15 @@ export function CoursePage() {
               ) : (
                 <Text text="Загрузка..." />
               )}
-              {currentEducation?.test && <button>Пройти тест</button>}
+              {currentEducation?.test && (
+                <Button
+                  classname={s.btn}
+                  text="Пройти тест"
+                  onClick={() =>
+                    router.replace(`/education/course/${id}/test/${id}`)
+                  }
+                />
+              )}
             </Box>
           </Wrapper>
         </PageWrapper>
