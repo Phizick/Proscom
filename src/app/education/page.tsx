@@ -14,6 +14,7 @@ export function EducationPage() {
   const router = useRouter();
   const { education } = useAppSelector((state) => state.education);
   const { pending } = useAppSelector((state) => state.education);
+  const { error } = useAppSelector((state) => state.education);
   const dispatch = useAppDispatch();
   useEffect(() => {
     const token = window.localStorage.getItem("token");
@@ -33,17 +34,20 @@ export function EducationPage() {
           <Wrapper>
             <Box>
               {pending && <p>Загрузка</p>}
+              {error?.message && (
+                <p style={{ color: "red" }}>{error?.message}</p>
+              )}
               <ul className={s.ul}>
-                {education?.map((item: any, index: number) => {
+                {education?.map((item) => {
                   return (
-                    <li className={s.li} key={String(index)}>
+                    <li className={s.li} key={String(item._id)}>
                       <Course
                         textTitle={item.name}
                         textDescription="Описание курса"
                         textResult="Пройден на 0%"
                         textDeadline="Дедлайн через 3 дня"
                         textSpan="тест не пройден"
-                        linkText={index}
+                        linkText={item._id}
                       />
                     </li>
                   );

@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, SyntheticEvent } from "react";
 import s from "./test.module.css";
 import { Label } from "../label/label";
 import { Button } from "../button/button";
@@ -7,20 +7,27 @@ interface IProps {
   A: string;
   B: string;
   C: string;
-  nextTest: () => void;
+  nextTest: (E: SyntheticEvent) => void;
+  setInputElement: (O: string) => void;
+  inputElement: string;
 }
 
-export const Test: FC<IProps> = ({ A, B, C, nextTest }) => {
-  const [inputElement, setInputElement] = useState("");
-
+export const Test: FC<IProps> = ({
+  A,
+  B,
+  C,
+  nextTest,
+  setInputElement,
+  inputElement,
+}) => {
   return (
     <form className={s.form} action="#">
       <div className={s.div}>
         <input
-          onChange={(e) => setInputElement(e.target.value)}
+          onChange={() => setInputElement("A")}
           className={s.input}
           type="radio"
-          value={A}
+          defaultValue={A}
           name="option"
           id={A}
         />
@@ -28,10 +35,10 @@ export const Test: FC<IProps> = ({ A, B, C, nextTest }) => {
       </div>
       <div className={s.div}>
         <input
-          onChange={(e) => setInputElement(e.target.value)}
+          onChange={() => setInputElement("B")}
           className={s.input}
           type="radio"
-          value={B}
+          defaultValue={B}
           name="option"
           id={B}
         />
@@ -39,10 +46,10 @@ export const Test: FC<IProps> = ({ A, B, C, nextTest }) => {
       </div>
       <div className={s.div}>
         <input
-          onChange={(e) => setInputElement(e.target.value)}
+          onChange={() => setInputElement("C")}
           className={s.input}
           type="radio"
-          value={C}
+          defaultValue={C}
           name="option"
           id={C}
         />

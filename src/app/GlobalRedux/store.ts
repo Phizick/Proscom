@@ -10,7 +10,7 @@ export const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
     profile: getUserSlice.reducer,
-    education: getEducationSlice.reducer
+    education: getEducationSlice.reducer,
   },
 });
 

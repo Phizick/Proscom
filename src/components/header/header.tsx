@@ -18,6 +18,7 @@ export const Header: FC = () => {
     minute: "2-digit",
   });
   const { profile } = useAppSelector((state) => state.profile);
+  const { error } = useAppSelector((state) => state.profile);
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getUserThunk(window.localStorage.getItem("token") as string));
@@ -26,6 +27,7 @@ export const Header: FC = () => {
 
   return (
     <header className={s.header}>
+      {error?.message && <p style={{ color: "red" }}>{error?.message}</p>}
       <h1 className={s.title}>
         <span className={s.by}>by </span> PROSCOM
       </h1>

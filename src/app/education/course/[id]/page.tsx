@@ -11,30 +11,27 @@ import { Crumbs } from "@/components/crumbs/crumbs";
 import { Text } from "@/components/text/text";
 import { useAppDispatch, useAppSelector } from "@/app/GlobalRedux/store";
 import { useEffect, useState } from "react";
-import { getEducationThunk } from "@/app/GlobalRedux/slices/educationSlice";
 import { Button } from "@/components/button/button";
 import s from "./page.module.css";
+import { getCurrentEducationThunk } from "@/app/GlobalRedux/slices/educationSlice";
 export function CoursePage() {
   const [userToken, setUserToken] = useState("");
-  const { education } = useAppSelector((state) => state.education);
+  const { currentEducation } = useAppSelector((state) => state.education);
+  const { error } = useAppSelector((state) => state.education);
   const dispatch = useAppDispatch();
   const router = useRouter();
   const params = useParams();
-  const id = Number(params.id);
+  const id = params.id as string;
   useEffect(() => {
     const token = window.localStorage.getItem("token");
     if (token) {
-      dispatch(getEducationThunk());
+      dispatch(getCurrentEducationThunk(id));
       setUserToken(token);
     } else {
       return router.push("/auth");
     }
   }, []);
-  const currentEducation =
-    id &&
-    education &&
-    education.find((item: any, index: number) => index === id);
-  console.log(currentEducation);
+
   return (
     <>
       {userToken && (
@@ -43,17 +40,22 @@ export function CoursePage() {
           <Wrapper>
             <Crumbs>
               <Crumb activeLink={false} linkText="/education" text="Курсы" />
-              {education && (
+              {currentEducation && (
                 <Crumb
                   activeLink={true}
                   linkText={`/education/course/${id}`}
-                  text={education ? currentEducation?.name : "Загрузка"}
+                  text={currentEducation ? currentEducation?.name : "Загрузка"}
                 />
               )}
             </Crumbs>
 
             <Box>
-              <Title text={education ? currentEducation?.name : "Загрузка"} />
+              {error?.message && (
+                <p style={{ color: "red" }}>{error?.message}</p>
+              )}
+              <Title
+                text={currentEducation ? currentEducation?.name : "Загрузка"}
+              />
               <Description text="Описание курса" />
               {currentEducation?.content ? (
                 <p>{currentEducation?.content}</p>
