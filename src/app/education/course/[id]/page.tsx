@@ -30,8 +30,7 @@ export function CoursePage() {
     } else {
       return router.push("/auth");
     }
-  }, []);
-
+  }, [id]);
   return (
     <>
       {userToken && (
@@ -58,7 +57,7 @@ export function CoursePage() {
               />
               <Description text="Описание курса" />
               {currentEducation?.content ? (
-                <p>{currentEducation?.content}</p>
+                <p className={s.descr}>{currentEducation?.content}</p>
               ) : (
                 <Text text="Загрузка..." />
               )}

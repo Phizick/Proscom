@@ -6,26 +6,31 @@ import { Course } from "@/components/course/course";
 import { Box } from "@/components/box/box";
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../GlobalRedux/store";
-import { getEducationRoleThunk } from "../GlobalRedux/slices/educationSlice";
+import {
+  currentEducationClear,
+  getEducationRoleThunk,
+} from "../GlobalRedux/slices/educationSlice";
 import s from "./page.module.css";
 import { useRouter } from "next/navigation";
+import { v4 as uuid } from "uuid";
 export function EducationPage() {
   const [userToken, setUserToken] = useState("");
   const router = useRouter();
   const { education } = useAppSelector((state) => state.education);
+  const { profile } = useAppSelector((state) => state.profile);
   const { pending } = useAppSelector((state) => state.education);
   const { error } = useAppSelector((state) => state.education);
   const dispatch = useAppDispatch();
   useEffect(() => {
     const token = window.localStorage.getItem("token");
-    const role = window.localStorage.getItem("role") as string;
     if (token) {
-      dispatch(getEducationRoleThunk("PM"));
+      dispatch(getEducationRoleThunk(profile?.role));
+      dispatch(currentEducationClear());
       setUserToken(token);
     } else {
       router.replace("/auth");
     }
-  }, []);
+  }, [profile?.role]);
 
   return (
     <>
@@ -41,7 +46,7 @@ export function EducationPage() {
               <ul className={s.ul}>
                 {education?.map((item) => {
                   return (
-                    <li className={s.li} key={String(item._id)}>
+                    <li className={s.li} key={uuid()}>
                       <Course
                         textTitle={item.name}
                         textDescription="Описание курса"

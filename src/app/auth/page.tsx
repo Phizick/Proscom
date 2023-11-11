@@ -25,7 +25,14 @@ export function AuthPage() {
   }, []);
   const authClick = async (e: SyntheticEvent) => {
     e.preventDefault();
-    await dispatch(userRegisterThunk({ username, password, priority, role }));
+    await dispatch(
+      userRegisterThunk({
+        username,
+        password,
+        priority: priority === "" ? "0" : priority,
+        role: role === "default" ? "others" : role,
+      })
+    );
     if (window.localStorage.getItem("token")) {
       router.push("/");
     }
@@ -49,20 +56,26 @@ export function AuthPage() {
                 type="text"
                 id="name"
                 placeholder="Введите логин"
+                required={true}
               />
-              <Label inputId="priority" text="Приоритет 1-HR & 2-Пользователь" />
+              <Label
+                inputId="priority"
+                text="Приоритет 1-HR & 2-Пользователь"
+              />
               <Input
                 value={priority}
                 onChange={(e) => setPriority(e.target.value)}
                 type="text"
                 id="priority"
                 placeholder="1 или 0"
+                required={true}
               />
               <Label
                 inputId="role"
                 text="Выберите роль: (PM, dev,sales,design,others)"
               />
               <select
+                required={true}
                 defaultValue={role}
                 id="role"
                 className={s.select}
@@ -96,6 +109,7 @@ export function AuthPage() {
                 type="password"
                 id="password"
                 placeholder="Введите пароль"
+                required={true}
               />
               {message && (
                 <p

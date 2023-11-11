@@ -1,3 +1,21 @@
 .btn {
   width: 100%;
 }
+
+.descr {
+  max-height: 700px;
+  overflow-y: scroll;
+}
+
+.descr::-webkit-scrollbar {
+  width: 1px;
+}
+
+.descr::-webkit-scrollbar-track {
+  background: #f9fafc;
+}
+
+.descr::-webkit-scrollbar-thumb {
+  background-color: #f9fafc;
+  border-radius: 20px;
+}

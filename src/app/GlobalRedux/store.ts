@@ -6,13 +6,15 @@ import { authSlice } from "./slices/authSlice";
 import { getUserSlice } from "./slices/profileSlice";
 import { getEducationSlice } from "./slices/educationSlice";
 import { uploadSlice } from "./slices/uploadSlice";
+import { usersSlice } from "./slices/usersSlice";
 
 export const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
     profile: getUserSlice.reducer,
     education: getEducationSlice.reducer,
-    upload: uploadSlice.reducer
+    upload: uploadSlice.reducer,
+    users: usersSlice.reducer,
   },
 });
 

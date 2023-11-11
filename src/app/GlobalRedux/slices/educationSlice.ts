@@ -1,4 +1,3 @@
-"use client";
 import {
   SerializedError,
   createAsyncThunk,
@@ -100,7 +99,11 @@ export const getCurrentEducationThunk = createAsyncThunk(
 export const getEducationSlice = createSlice({
   name: "get-education",
   initialState,
-  reducers: {},
+  reducers: {
+    currentEducationClear: (state) => {
+      state.currentEducation = {} as IEducation;
+    },
+  },
   extraReducers: (builder) => {
     builder.addMatcher(isAnyOf(getEducationRoleThunk.pending), (state) => {
       state.pending = true;
@@ -158,3 +161,5 @@ export const getEducationSlice = createSlice({
       );
   },
 });
+
+export const { currentEducationClear } = getEducationSlice.actions;

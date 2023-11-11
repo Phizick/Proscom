@@ -45,6 +45,7 @@ export function TestPage() {
     if (answer === inputElement) {
       setArrAnswer((current) => [...current, inputElement]);
     }
+    setInputElement("");
     setNumTest((prev) => (prev += 1));
   };
   return (
