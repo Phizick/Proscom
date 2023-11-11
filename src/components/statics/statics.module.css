@@ -1,0 +1,30 @@
+.box {
+  border-radius: 16px;
+  max-width: 544px;
+  padding: 32px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.text {
+  margin: 0;
+  color: rgba(20, 18, 33, 0.7);
+  margin-bottom: 8px;
+}
+
+.text:first-of-type {
+  margin-top: 16px;
+}
+
+.text:last-of-type {
+  margin-bottom: 0;
+}
+
+.span {
+  color: rgba(20, 18, 33, 0.9);
+}
+
+.flex {
+  display: flex;
+  align-items: flex-start;
+}

@@ -1,0 +1,64 @@
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.one {
+  background: #000000;
+  height: 100vh;
+  color: #fff;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.proscom {
+  font-size: 64px;
+  line-height: 68px;
+}
+
+.two {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  margin-top: 24px;
+}
+
+.auth {
+  max-width: 336px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  margin-top: 8px;
+}
+
+.select {
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  height: 44px;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+  outline: none;
+  font-family: inherit;
+  background-color: #fff;
+}

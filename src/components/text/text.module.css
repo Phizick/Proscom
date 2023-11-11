@@ -1,0 +1,12 @@
+.title_course {
+  margin: 0;
+  color: #141221;
+  opacity: 0.9;
+  font-size: 22px;
+  line-height: 26px;
+  margin-top: 32px;
+}
+
+.title_course:first-of-type {
+  margin-top: 0;
+}

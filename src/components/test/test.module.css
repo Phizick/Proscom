@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.div {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.div:last-of-type {
+  margin-bottom: 16px;
+}
+
+.input {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.button_disabled {
+  opacity: 0.2;
+}
+
+.button_disabled:hover {
+  opacity: 0.2;
+}

@@ -1,0 +1,20 @@
+.ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 700px;
+  overflow-y: scroll;
+}
+
+.ul::-webkit-scrollbar {
+  width: 1px;
+}
+
+.ul::-webkit-scrollbar-track {
+  background: #f9fafc;
+}
+
+.ul::-webkit-scrollbar-thumb {
+  background-color: #f9fafc;
+  border-radius: 20px;
+}
