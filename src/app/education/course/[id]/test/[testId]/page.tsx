@@ -38,7 +38,7 @@ const TestPage = () => {
       dispatch(getCurrentEducationThunk(id));
       setUserToken(token);
     }
-  }, []);
+  }, [dispatch,id,router]);
 
   const clickTest = (e: SyntheticEvent, answer: string) => {
     e.preventDefault();

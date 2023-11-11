@@ -30,7 +30,7 @@ const EducationPage = () => {
     } else {
       router.replace("/auth");
     }
-  }, [profile?.role]);
+  }, [profile?.role, dispatch,router]);
 
   return (
     <>

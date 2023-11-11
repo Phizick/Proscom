@@ -18,7 +18,7 @@ export const MyCourse = () => {
   };
   useEffect(() => {
     dispatch(getEducationThunk());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={s.course_box}>

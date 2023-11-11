@@ -40,7 +40,7 @@ const ProfilePage = () => {
     } else {
       router.replace("/auth");
     }
-  }, []);
+  }, [router]);
 
   return (
     <>

@@ -13,7 +13,7 @@ export const Employees = () => {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getUsersThunk());
-  }, []);
+  }, [dispatch]);
   const filterUsers = users.filter((user) => user._id !== profile._id);
   return (
     <div className={s.box}>

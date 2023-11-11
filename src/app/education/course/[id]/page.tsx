@@ -30,7 +30,7 @@ const CoursePage = () => {
     } else {
       return router.push("/auth");
     }
-  }, [id]);
+  }, [id,dispatch,router]);
   return (
     <>
       {userToken && (

@@ -23,7 +23,7 @@ export const Header: FC = () => {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getUserThunk(window.localStorage.getItem("token") as string));
-  }, []);
+  }, [dispatch]);
   const name = profile.username?.charAt(0).toUpperCase();
 
   return (

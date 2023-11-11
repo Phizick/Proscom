@@ -22,7 +22,7 @@ const AuthPage = () => {
     if (token) {
       return router.replace("/");
     }
-  }, []);
+  }, [router]);
   const authClick = async (e: SyntheticEvent) => {
     e.preventDefault();
     await dispatch(

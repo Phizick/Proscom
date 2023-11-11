@@ -21,7 +21,7 @@ export default function Home() {
     } else {
       setTokenActive(true);
     }
-  }, []);
+  }, [router]);
   return (
     <>
       {tokenActive ? (
