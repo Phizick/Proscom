@@ -13,7 +13,7 @@ import { useAppSelector } from "../GlobalRedux/store";
 import { useEffect, useState } from "react";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const data = {
+const data = {
   labels: ["", "Успеваемость"],
   datasets: [
     {
@@ -24,7 +24,7 @@ export const data = {
   ],
 };
 
-export function ProfilePage() {
+const ProfilePage = () => {
   const [userToken, setUserToken] = useState("");
   const { profile } = useAppSelector((state) => state.profile);
   const router = useRouter();
@@ -63,6 +63,6 @@ export function ProfilePage() {
       )}
     </>
   );
-}
+};
 
 export default ProfilePage;

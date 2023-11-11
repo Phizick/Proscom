@@ -15,7 +15,7 @@ import { Crumb } from "@/components/crumb/crumb";
 import { useAppDispatch, useAppSelector } from "@/app/GlobalRedux/store";
 import { getCurrentEducationThunk } from "@/app/GlobalRedux/slices/educationSlice";
 
-export function TestPage() {
+const TestPage = () => {
   const [arrAnswer, setArrAnswer] = useState<string[]>([]);
   const [inputElement, setInputElement] = useState("");
   const dispatch = useAppDispatch();
@@ -119,6 +119,6 @@ export function TestPage() {
       )}
     </>
   );
-}
+};
 
 export default TestPage;

@@ -13,7 +13,7 @@ import {
 import s from "./page.module.css";
 import { useRouter } from "next/navigation";
 import { v4 as uuid } from "uuid";
-export function EducationPage() {
+const EducationPage = () => {
   const [userToken, setUserToken] = useState("");
   const router = useRouter();
   const { education } = useAppSelector((state) => state.education);
@@ -65,6 +65,6 @@ export function EducationPage() {
       )}
     </>
   );
-}
+};
 
 export default EducationPage;

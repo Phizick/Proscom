@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { SyntheticEvent, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../GlobalRedux/store";
 import { userRegisterThunk } from "../GlobalRedux/slices/authSlice";
-export function AuthPage() {
+const AuthPage = () => {
   const { message } = useAppSelector((state) => state.auth.error);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -129,6 +129,6 @@ export function AuthPage() {
       </div>
     </>
   );
-}
+};
 
 export default AuthPage;

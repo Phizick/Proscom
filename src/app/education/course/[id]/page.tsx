@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/button/button";
 import s from "./page.module.css";
 import { getCurrentEducationThunk } from "@/app/GlobalRedux/slices/educationSlice";
-export function CoursePage() {
+const CoursePage = () => {
   const [userToken, setUserToken] = useState("");
   const { currentEducation } = useAppSelector((state) => state.education);
   const { error } = useAppSelector((state) => state.education);
