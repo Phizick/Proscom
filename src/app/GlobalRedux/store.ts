@@ -8,7 +8,7 @@ import { getEducationSlice } from "./slices/educationSlice";
 import { uploadSlice } from "./slices/uploadSlice";
 import { usersSlice } from "./slices/usersSlice";
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
     profile: getUserSlice.reducer,
@@ -18,6 +18,7 @@ export const store = configureStore({
   },
 });
 
+export default store;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export const useAppDispatch = () => useDispatch<AppDispatch>();

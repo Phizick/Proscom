@@ -1,8 +1,8 @@
 "use client";
 
 import { Provider } from "react-redux";
-import { store } from "./store";
 import { FC, ReactNode } from "react";
+import store from "./store";
 
 interface MyProps {
   children?: ReactNode;
